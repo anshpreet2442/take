@@ -29,6 +29,99 @@
 
 
 
+  <style>
+    /* Popup styles */
+    .popup-container {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: #ffffff;
+      border: 2px solid #fe9700;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+    }
+    .popup-text {
+      color: #000000;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .popup-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+    .popup-button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #fe9700;
+      color: #ffffff;
+      cursor: pointer;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    .popup-button:hover {
+      background-color: #ffb84d;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Popup Container -->
+<div id="popup" class="popup-container">
+  <div class="popup-text">Where would you like to go?</div>
+  <div class="popup-buttons">
+    <button class="popup-button" id="goToBitly">Go to Bitly</button>
+    <button class="popup-button" id="goToEtus">Go to Etus</button>
+  </div>
+</div>
+
+<!-- Script for Popup -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const popup = document.getElementById('popup');
+    const goToBitlyButton = document.getElementById('goToBitly');
+    const goToEtusButton = document.getElementById('goToEtus');
+
+    // Play sound function
+    function playSound(url) {
+      const audio = new Audio(url);
+      audio.play();
+    }
+
+    // Function to open popup
+    function openPopup() {
+      popup.style.display = 'block';
+      // Animated RGB color animation
+      let hue = 0;
+      setInterval(function() {
+        popup.style.backgroundColor = `rgb(${hue}, 100, 100)`;
+        hue = (hue + 1) % 360;
+      }, 50);
+    }
+
+    // Event listeners for buttons
+    goToBitlyButton.addEventListener('click', function() {
+      playSound('sound.mp3');
+      window.location.href = 'https://anshpreet2442.github.io/take/bitly.html';
+    });
+
+    goToEtusButton.addEventListener('click', function() {
+      playSound('sound.mp3');
+      window.location.href = 'https://anshpreet2442.github.io/take/etus.html';
+    });
+
+    // Open popup on page load
+    openPopup();
+  });
+</script>
+
+</body>
+</html>
+
 
 
 
